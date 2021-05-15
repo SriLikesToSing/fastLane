@@ -2,48 +2,6 @@ import hashlib
 import click
 import quantumrandom
 
-
-#Programming a better password manager from scratch
-
-#first time users can use an inbuilt password generator
-#make command line and gui version
-'''
-use kivy for gui
-    - https://kivy.org/#home
-    - https://kivy.org/#gallery
-
-
-'''
-
-'''
-fastLane: a open source self hosted offline password manager that requires no database
-
-self hosted
-maybe:
-    configures the self hostedness automatically so that if you have this system installed on multiple systems
-
-how do I add extra security:
-    if more than three tries then send notif to phone
-        if not then lock out the password manager
-
-can you make the password management system better?
-    - currently modifying and using algorithms based on lesspass (I will mostly change this)
-
-shows all the usernames and logins that are currently in the system once your logged in (optional: on by default)
-
-settings menu
-
-two factor authentication?
-    - phone notification
-
-use an external drive process option to safely store the program to quickly use it on other devices
-
-option to remember the password so you dont have to type it in every time (so you only need to type in the login, username, and any characters you want taken out)
-    - can choose to forget it after some time period
-
-Password generator functions
-'''
-
 CHARACTER_SUBSETS = {
     "lowercase":"abcdefghijklmnopqrstuvwxyz",
     "uppercase":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -136,30 +94,6 @@ def makePassword(masterPassword, passDetails):
     return presentPassword(entropy, passDetails)
 
 
-#print(removeExcludedChars("j^%pC*3UKDgzBr%lXMHqC", "j^%pC*3UKD"))
-
-
-passDetails = {
-    "site"  : "pbsKids",
-    "login" : "SriLikesThatCake",
-    #lowercase, uppercase, digits, symbols
-    "rules" : ["lowercase", "digits", "symbols"],
-    "exclude" : "j^%pC*3UKD",
-    "length" : 15
-}
-'''
-print(makePassword("j^%pC*3UKDgzBr%lXMHqC", passDetails))
-print("PASSWORD")
-#print(getRules(passDetails))
-
-
-#print(calcEntropy(passDetails,"j^%pC*3UKDgzBr%lXMHqC" ))
-
-var = calcEntropy(passDetails,"j^%pC*3UKDgzBr%lXMHqC")
-
-#print(consumeEntropy("", var, getCharacters(), int(passDetails["length"])))
-'''
-
 def main():
     end = False
 
@@ -218,14 +152,7 @@ def main():
             print(makePassword(masterPassword, passDetails))
 
 
-    passDetails = {
-        "site"  : "pbsKids",
-        "login" : "SriLikesThatCake",
-        #lowercase, uppercase, digits, symbols
-        "rules" : ["lowercase", "digits", "symbols"],
-        "exclude" : "j^%pC*3UKD",
-        "length" : 15
-    }
+   
 
     print("generated password", " ", makePassword("j^%pC*3UKDgzBr%lXMHqC", passDetails))
 
