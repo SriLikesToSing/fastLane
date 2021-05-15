@@ -173,19 +173,19 @@ def main():
         if mainMenu == str(2):
             passDetails = {}
             options = ["site", "login", "rules", "exclude", "length"]
+
             index = 0
 
             while index <= 4:
                 details = input(f"Enter {options[index]} details")
+                if index == 3 and details == "none":
+                    passDetails[options[index]] = ""
+                    index+=1
+                    continue
                 if details == 'quit':
                     break
-                '''
-                if details.count('') != 1:
-                    print('Malformed input!')
-                    continue
-                '''
-                passDetails[options[index]] = details
 
+                passDetails[options[index]] = details
                 index+=1
 
             print(passDetails)
