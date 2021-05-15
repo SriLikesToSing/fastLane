@@ -1,5 +1,7 @@
 import hashlib
 import click
+import quantumrandom
+
 
 #Programming a better password manager from scratch
 
@@ -114,7 +116,7 @@ def getOneCharPerRule(entropy, rules, exclude=""):
 
 def getRules(passDetails):
     rules = ["lowercase", "uppercase", "digits", "symbols"]
-    return [rule for rule in rules if rule in passDetails["rules"]]
+    return [rule for rule in rules if rule in passDetails["rules"] and passDetails["rules"]]
 
 
 def presentPassword(entropy, passDetails):
@@ -158,7 +160,6 @@ var = calcEntropy(passDetails,"j^%pC*3UKDgzBr%lXMHqC")
 #print(consumeEntropy("", var, getCharacters(), int(passDetails["length"])))
 '''
 
-
 def main():
     end = False
 
@@ -195,13 +196,26 @@ def main():
         elif mainMenu == str(3):
             print("exiting....")
             break
+        elif mainMenu == str(1):
+            print("PASSWORD")
+            len = input("specify length of password")
+            #length of string is 94 characters long
+            SYMBOLS = CHARACTER_SUBSETS["lowercase"]+CHARACTER_SUBSETS["uppercase"]+CHARACTER_SUBSETS["digits"]+CHARACTER_SUBSETS["symbols"]
+            masterPassword= ""
+            for character in range(int(len)):
+                num = int(quantumrandom.randint(0, 94))
+                masterPassword+=SYMBOLS[num]
 
-
-
-        end = False
-
-
-
+            passDetails = {
+                "site"  : "37L>,5k*R?y`unyS",
+                "login" : "}237'Ue`-.R_zc",
+                #lowercase, uppercase, digits, symbols
+                "rules" : ["lowercase", "uppercase", "digits", "symbols"],
+                "exclude" : "",
+                "length" : len
+            }
+            print("write this password down somewhere safe and cozy, we do not reccoment you storing this anywhere but in real life!")
+            print(makePassword(masterPassword, passDetails))
 
 
     passDetails = {
