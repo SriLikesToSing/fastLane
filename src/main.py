@@ -1,4 +1,5 @@
 import hashlib
+import click
 
 #Programming a better password manager from scratch
 
@@ -111,8 +112,6 @@ def getOneCharPerRule(entropy, rules, exclude=""):
         getOneCharPerRule += value
     return [getOneCharPerRule, entropy]
 
-
-
 def getRules(passDetails):
     rules = ["lowercase", "uppercase", "digits", "symbols"]
     return [rule for rule in rules if rule in passDetails["rules"]]
@@ -124,7 +123,7 @@ def presentPassword(entropy, passDetails):
 
     characterSet = getCharacters(rules, excludedChars)
 
-    password, passwordEntropy = consumeEntropy("", entropy, characterSet, passDetails["length"]-len(rules))
+    password, passwordEntropy = consumeEntropy("", entropy, characterSet, int(passDetails["length"])-len(rules))
 
     remainingCharacters, characterEntropy = getOneCharPerRule(passwordEntropy, rules, excludedChars)
 
@@ -160,8 +159,51 @@ var = calcEntropy(passDetails,"j^%pC*3UKDgzBr%lXMHqC")
 '''
 
 
-
 def main():
+    end = False
+
+    while(end==False):
+
+        print("1: generate a new master password")
+        print("2: login")
+        print("3: quit")
+
+        mainMenu = input("enter prefered number to proceed.")
+        if mainMenu == str(2):
+            passDetails = {}
+            options = ["site", "login", "rules", "exclude", "length"]
+            index = 0
+
+            while index <= 4:
+                details = input(f"Enter {options[index]} details")
+                if details == 'quit':
+                    break
+                '''
+                if details.count('') != 1:
+                    print('Malformed input!')
+                    continue
+                '''
+                passDetails[options[index]] = details
+
+                index+=1
+
+            print(passDetails)
+            masterPassword = input("enter master password")
+
+
+            print(makePassword(masterPassword, passDetails))
+        elif mainMenu == str(3):
+            print("exiting....")
+            break
+
+
+
+        end = False
+
+
+
+
+
     passDetails = {
         "site"  : "pbsKids",
         "login" : "SriLikesThatCake",
