@@ -129,7 +129,7 @@ def main():
             print(makePassword(masterPassword, passDetails))
         elif mainMenu == str(3):
             print("exiting....")
-            break
+            exit(0)
         elif mainMenu == str(1):
             print("PASSWORD")
             len = input("specify length of password")
