@@ -123,7 +123,7 @@ def main():
                 index+=1
 
             print(passDetails)
-            masterPassword = input("enter master password")
+            masterPassword = input("enter master password ")
 
 
             print(makePassword(masterPassword, passDetails))
@@ -131,8 +131,8 @@ def main():
             print("exiting....")
             exit(0)
         elif mainMenu == str(1):
-            print("PASSWORD")
-            len = input("specify length of password")
+            len = input("specify length of password ")
+            print("generating... this might take a while ") 
             #length of string is 94 characters long
             SYMBOLS = CHARACTER_SUBSETS["lowercase"]+CHARACTER_SUBSETS["uppercase"]+CHARACTER_SUBSETS["digits"]+CHARACTER_SUBSETS["symbols"]
             masterPassword= ""
