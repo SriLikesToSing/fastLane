@@ -12,6 +12,7 @@ CHARACTER_SUBSETS = {
 
 
 def calcEntropy(passwordProfile, masterPassword):
+    #salt is basically the cryptographic additions of bits you add to make the password more unique and secure before hashing.
     salt = (
         passwordProfile["site"]
         + passwordProfile["login"]
