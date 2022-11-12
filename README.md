@@ -6,7 +6,7 @@ FastLane is a stateless and serverless password manager. Use only one password t
 
 Features:
 
-  - Generate master password using quantum randomness running on special servers which then goes through a sha512 hashing algorithm to create the most secure password. 
+  - Generate master password using quantum randomness which then goes through a sha512 hashing algorithm to create the most secure password. 
   
  - Generate special passwords for certain websites using the master password and eliminate the need to store them because they are all generated using the masterpassword
 
