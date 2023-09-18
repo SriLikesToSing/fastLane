@@ -1,13 +1,12 @@
 import hashlib
 import click
-import quantumrandom
+import requests
 
 CHARACTER_SUBSETS = {
     "lowercase":"abcdefghijklmnopqrstuvwxyz",
     "uppercase":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "digits":"0123456789",
     "symbols":"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-
 }
 
 
@@ -75,6 +74,8 @@ def getOneCharPerRule(entropy, rules, exclude=""):
 
 def getRules(passDetails):
     rules = ["lowercase", "uppercase", "digits", "symbols"]
+    if passDetails["rules"] == '':
+        return rules
     return [rule for rule in rules if rule in passDetails["rules"] and passDetails["rules"]]
 
 
@@ -99,12 +100,12 @@ def main():
     end = False
 
     while(end==False):
-
+        print('\n')
         print("1: generate a new master password")
         print("2: login")
         print("3: quit")
 
-        mainMenu = input("enter prefered number to proceed.")
+        mainMenu = input("enter prefered number to proceed. ")
         if mainMenu == str(2):
             passDetails = {}
             options = ["site", "login", "rules", "exclude", "length"]
@@ -112,7 +113,10 @@ def main():
             index = 0
 
             while index <= 4:
-                details = input(f"Enter {options[index]} details")
+                details = input(f"Enter {options[index]} details: ")
+                if  index == 1:
+                    print("type out each rule separated with comma's. If left blank it will use every rule")
+                    print("Rules: lowercase, uppercase, digits, symbols")
                 if index == 3 and details == "none":
                     passDetails[options[index]] = ""
                     index+=1
@@ -122,8 +126,9 @@ def main():
 
                 passDetails[options[index]] = details
                 index+=1
+            if passDetails[options[4]] == '':
+                raise Exception("Please input the length for the password to retrieve it")
 
-            print(passDetails)
             masterPassword = input("enter master password ")
 
 
@@ -132,13 +137,24 @@ def main():
             print("exiting....")
             exit(0)
         elif mainMenu == str(1):
-            len = input("specify length of password ")
+            len = input("specify length of password: ")
+            try:
+                int(len)
+            except:
+                print('\n')
+                print("Sorry, please input integer")
+                continue
+
+
             print("generating... this might take a while ") 
             #length of string is 94 characters long
             SYMBOLS = CHARACTER_SUBSETS["lowercase"]+CHARACTER_SUBSETS["uppercase"]+CHARACTER_SUBSETS["digits"]+CHARACTER_SUBSETS["symbols"]
             masterPassword= ""
             for character in range(int(len)):
-                num = int(quantumrandom.randint(0, 94))
+                source = "https://www.random.org/integers/?num=1&min=1&max=93&col=5&base=10&format=plain&rnd=new"
+                num = requests.get(source)
+                num= int(num.text)
+
                 masterPassword+=SYMBOLS[num]
 
             passDetails = {
@@ -149,17 +165,9 @@ def main():
                 "exclude" : "",
                 "length" : len
             }
-            print("write this password down somewhere safe and cozy, we do not reccoment you storing this anywhere but in real life!")
+            print('\n')
+            print("write this password down somewhere safe and cozy, we do not reccomend you storing this anywhere but in real life!")
             print(makePassword(masterPassword, passDetails))
-
-
-   
-
-    print("generated password", " ", makePassword("j^%pC*3UKDgzBr%lXMHqC", passDetails))
-
-
-
-
 
 
 if __name__ == '__main__':
