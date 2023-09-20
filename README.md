@@ -14,4 +14,4 @@ Features:
 
 
 Usage:
-  - Run Main.exe
+  - Run main.exe
