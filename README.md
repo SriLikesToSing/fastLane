@@ -17,7 +17,7 @@ Features:
 To run this software
 
 ```bash
-  click on main.exe
+  download and click on main.exe 
 ```
 
 
