@@ -13,8 +13,12 @@ Features:
 - Never memorize multiple passwords or fear someone hacking into servers and gaining access to all your password stores. Your passwords for your websites are mathematically connected to your master password enstead of your passwords being accessed through the master password through a database which is extremely more unsafe. 
 
 
-Usage:
-  - Run main.exe
+
+To run this software
+
+```bash
+  click on main.exe
+```
 
 
 
