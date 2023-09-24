@@ -42,6 +42,8 @@ The password generator uses the following components:
   sudo apt-get install wine
   wine dir_to_program/main.exe
 ```
+- Select 1 if you want to generate a master password
+  
 1. Select option 2 to log in.
 
 2. Provide the following details:
