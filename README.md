@@ -28,7 +28,7 @@ The password generator uses the following components:
 4. **User Interface:** The script provides a simple command-line interface for generating passwords, logging in, and quitting.
 
 
-To run this software
+## Usage
 
 # Windows
 
@@ -42,8 +42,23 @@ To run this software
   sudo apt-get install wine
   wine dir_to_program/main.exe
 ```
+1. Select option 2 to log in.
 
+2. Provide the following details:
+    - Site: example.com
+    - Login: user@example.com
+    - Rules: lowercase, uppercase, digits, symbols
+    - Exclusion: (leave it blank)
+    - Length: 16 (or your preferred length)
+  
+3. Enter your master password when prompted.
 
+4. The script will generate and display a strong and secure password for the specified site and login.
+
+Please note that you should store your master password securely since it will be used to generate site-specific passwords.
+
+# Important Security Note
+The generated passwords are as secure as your master password. Ensure that your master password is strong and kept confidential. Never share your master password or store it in an insecure location.
 
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
