@@ -27,6 +27,7 @@ To run this software
 ```bash
   sudo apt-get install wine
   wine dir_to_program/main.exe
+```
 
 
 
