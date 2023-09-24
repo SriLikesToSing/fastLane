@@ -57,8 +57,6 @@ The password generator uses the following components:
 
 4. The script will generate and display a strong and secure password for the specified site and login.
 
-Please note that you should store your master password securely since it will be used to generate site-specific passwords.
-
 # Important Security Note
 The generated passwords are as secure as your master password location. Ensure that your master password is kept confidential. Never share your master password or store it in an insecure location.
 
