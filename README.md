@@ -16,9 +16,17 @@ Features:
 
 To run this software
 
+#Windows
+
 ```bash
   download and click on main.exe 
 ```
+
+#Linux
+
+```bash
+  sudo apt-get install wine
+  wine dir_to_program/main.exe
 
 
 
