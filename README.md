@@ -51,7 +51,7 @@ The password generator uses the following components:
     - Login: user@example.com
     - Rules: lowercase, uppercase, digits, symbols (include whatever you want, and leave blank if you want all rules) 
     - Exclusion: (exclude from any of the above)
-    - Length: 16 (or your preferred length)
+    - Length: (your preferred length)
   
 3. Enter your master password when prompted.
 
