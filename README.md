@@ -16,13 +16,13 @@ Features:
 
 To run this software
 
-#Windows
+# Windows
 
 ```bash
   download and click on main.exe 
 ```
 
-#Linux
+# Linux
 
 ```bash
   sudo apt-get install wine
