@@ -12,6 +12,20 @@ Features:
    
 - Never memorize multiple passwords or fear someone hacking into servers and gaining access to all your password stores. Your passwords for your websites are mathematically connected to your master password enstead of your passwords being accessed through a database which is extremely more unsafe. 
 
+## How it Works
+
+The password generator uses the following components:
+
+1. **Character Subsets:** The script defines several character subsets, including lowercase letters, uppercase letters, digits, and symbols. These subsets are used to build the characters for the generated password.
+
+2. **Entropy Calculation:** The script calculates entropy by hashing the master password along with site-specific and login-specific information using the PBKDF2-HMAC-SHA512 algorithm. This step helps in generating a unique password for each combination of site and login.
+
+3. **Password Generation:** The script generates a password based on the calculated entropy. It follows these steps:
+   - It determines the character set based on the selected rules (e.g., lowercase, uppercase, digits, symbols) and excludes any characters specified to be excluded.
+   - It generates a password by repeatedly consuming entropy to select characters from the character set until it reaches the desired password length.
+   - It ensures that at least one character from each selected rule is included in the password.
+
+4. **User Interface:** The script provides a simple command-line interface for generating passwords, logging in, and quitting.
 
 
 To run this software
