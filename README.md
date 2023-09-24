@@ -49,7 +49,7 @@ The password generator uses the following components:
 2. Provide the following details:
     - Site: example.com
     - Login: user@example.com
-    - Rules: lowercase, uppercase, digits, symbols (include whatever you want) 
+    - Rules: lowercase, uppercase, digits, symbols (include whatever you want, and leave blank if you want all rules) 
     - Exclusion: (exclude from any of the above)
     - Length: 16 (or your preferred length)
   
