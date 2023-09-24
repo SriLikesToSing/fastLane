@@ -58,7 +58,7 @@ The password generator uses the following components:
 Please note that you should store your master password securely since it will be used to generate site-specific passwords.
 
 # Important Security Note
-The generated passwords are as secure as your master password. Ensure that your master password is strong and kept confidential. Never share your master password or store it in an insecure location.
+The generated passwords are as secure as your master password location. Ensure that your master password is kept confidential. Never share your master password or store it in an insecure location.
 
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
