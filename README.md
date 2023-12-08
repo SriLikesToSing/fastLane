@@ -4,13 +4,13 @@
 
 FastLane is a stateless and serverless password manager. Use one password to get access to all of your passwords. Uses SHA512 recursive hashing to create a new password using your master password. This makes using a database to store your other passwords uncessesary and increases ease of use and security. 
 
-However, the target audience should be those who are looking for password types that are one way and irreplaceable and unchanging in nature. Types that follow f(g(x1...xn)) but not g(f(y1....yn)).  
+However, the target audience should be those who are looking for password types that are one way, unchanging, and are interlinked with other password systems at once. 
 
 Features:
 
   - Generate master password using random.com which then goes through a sha512 hashing algorithm to create the most secure master password. 
   
- - Generate special passwords for certain websites using the master password and eliminate the need to store them because they are all generated using the masterpassword
+ - Generate special passwords for certain websites using the master password and eliminate the need to store them because they are all generated using the masterpassword.
    
 - Never memorize multiple passwords or fear someone hacking into servers and gaining access to all your password stores. Your passwords for your websites are mathematically connected to your master password enstead of your passwords being accessed through a database which is extremely more unsafe. 
 
@@ -26,6 +26,7 @@ The password generator uses the following components:
    - It determines the character set based on the selected rules (e.g., lowercase, uppercase, digits, symbols) and excludes any characters specified to be excluded.
    - It generates a password by repeatedly consuming entropy to select characters from the character set until it reaches the desired password length.
    - It ensures that at least one character from each selected rule is included in the password.
+   - Think of password access as taking a partial derivative respect to a hash. 
 
 4. **User Interface:** The script provides a simple command-line interface for generating passwords, logging in, and quitting.
 
