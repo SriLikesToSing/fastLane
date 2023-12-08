@@ -4,6 +4,8 @@
 
 FastLane is a stateless and serverless password manager. Use one password to get access to all of your passwords. Uses SHA512 recursive hashing to create a new password using your master password. This makes using a database to store your other passwords uncessesary and increases ease of use and security. 
 
+However, the target audience should be those who are looking for password types that are one way and irreplaceable and unchanging in nature. Types that follow f(g(x1...xn)) but not g(f(y1....yn)).  
+
 Features:
 
   - Generate master password using random.com which then goes through a sha512 hashing algorithm to create the most secure master password. 
